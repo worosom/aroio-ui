@@ -1,0 +1,206 @@
+<style scoped>
+.wlan_list__container {
+  position: relative;
+}
+.wlan_list__container .list-group {
+  transition: max-height 200ms ease-in;
+  max-height: 244px;
+  overflow: scroll;
+}
+.wlan_list__container.expanded .list-group {
+  max-height: unset;
+}
+.wlan_list__container .list-group-item {
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+}
+.wlan_list__container .list-group-item:hover:not(.active) {
+  background-color: #F0F0F0;
+}
+
+.wlan_list__expander {
+  cursor: pointer;
+  position: absolute;
+  bottom: -25px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: 25px;
+  text-align: center;
+  background-color: #FAFAFA;
+  border: 1px solid #00aaaa;
+  border-radius: 0 0 5px 5px;
+  transition: background 200ms ease-in-out;
+}
+
+.wlan_list__expander:hover {
+  background-color: #00aaaa;
+}
+
+.wlan_list__expander:after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+
+  border-top: 12px solid #00aaaa;
+  transition: border-color 200ms ease-in-out;
+}
+.wlan_list__expander:hover:after {
+  border-top: 12px solid #FFF;
+}
+.wlan_pwd__group .btn {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.wlan_list__card .btn.scanning:after {
+  content: "...";
+  position: absolute;
+  transform: translateX(.5rem);
+  animation: scanning 500ms infinite;
+  animation-direction: alternate;
+}
+@keyframes scanning {
+  0% { color: transparent; }
+  100% { color: inherit; }
+}
+</style>
+<template>
+  <b-card
+    no-body
+    :class="`${list.length && !ssid ? 'mb-5 ' : 'mb-4'} wlan_list__card`"
+    >
+    <b-btn
+      slot="header"
+      style="width:100%"
+      variant="outline-primary"
+      @click="scan()"
+      :class="scanning ? 'scanning' : ''"
+      :pressed="scanning"
+      >{{ $t('NETWORK.wlan_search') }}</b-btn>
+    <div
+      :class="`wlan_list__container ${expanded ? 'expanded' : ''}`"
+      v-if="list.length || ssid"
+      >
+      <b-list-group ref="networklist" flush>
+        <b-list-group-item
+          v-for="(item, _key) in list"
+          :key="_key"
+          :active="selected(item)"
+          @click="select(item)"
+          >{{ item }}</b-list-group-item>
+        <b-list-group-item
+          active
+          v-if="list.length == 0 && ssid"
+          >{{ ssid }}</b-list-group-item>
+      </b-list-group>
+      <div class="wlan_list__expander"
+        @click="expanded = true"
+        v-if="!expanded && list.length"
+        >
+      </div>
+    </div>
+    <b-input-group
+      v-if="ssid"
+      slot="footer"
+      :class="`wlan_pwd__group ${expanded || !list.length ? '' : 'mt-4'}`"
+      >
+      <b-form-input
+        autocomplete="off"
+        v-model="pwd"
+        :placeholder="$t('NETWORK.wlanpwd')"
+        :type="showpwd ? 'text' : 'password'"
+        ></b-form-input>
+      <b-btn
+        slot="append"
+        variant="outline-primary"
+        :pressed.sync="showpwd"
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 0 24 24"
+          >
+          <g v-if="!showpwd">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+          </g>
+          <g v-if="showpwd">
+            <path d="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0z" fill="none"/>
+            <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/>
+          </g>
+        </svg>
+      </b-btn>
+    </b-input-group>
+  </b-card>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      list: [
+      ],
+      showpwd: false,
+      expanded: false,
+      scanning: false
+    }
+  },
+  computed: {
+    ssid: {
+      get() {
+        return this.$store.state.config.wlanssid
+      },
+      set(value) {
+        this.$store.commit('SET_VALUE', {
+          section: 'NETWORK',
+          key: 'wlanssid',
+          value
+        })
+      }
+    },
+    pwd: {
+      get() {
+        return this.$store.state.config.wlanpwd
+      },
+      set(value) {
+        this.$store.commit('SET_VALUE', {
+          section: 'NETWORK',
+          key: 'wlanpwd',
+          value
+        })
+      }
+    }
+  },
+  methods: {
+    select(item) {
+      if (this.selected(item)) {
+        this.ssid = ''
+        return
+      }
+      this.ssid = item
+      this.expanded = false
+      this.pwd = ''
+      window.setTimeout(() => {
+        const el = this.$refs['networklist'];
+        el.childNodes.forEach((ch) => {
+          if(ch.className && ch.className.indexOf('active') > 0) {
+            el.scrollTop = ch.offsetTop; console.log(ch)
+          }
+        })
+      }, 100);
+    },
+    selected(item) {
+      return item === this.ssid
+    },
+    scan() {
+      this.scanning = true;
+      this.$store.dispatch('GET_IWLIST').then((x) => {
+        console.log(this.$store.state)
+        this.list = this.$store.state.iwlist
+        this.scanning = false;
+      });
+    }
+  }
+}
+</script>

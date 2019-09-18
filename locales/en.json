@@ -1,0 +1,304 @@
+{
+  "language": "Language",
+  "save_settings": "Apply settings",
+  "reboot": "Reboot",
+  "cleaner": "MS Coding",
+  "links": {
+    "audio": "Audio",
+    "convolver": "Convolver",
+    "measure": "Measure",
+    "network": "Network",
+    "system": "System",
+    "credits": "Credits"
+  },
+  "modals": {
+    "reboot": {
+      "title": "Restart"
+    }
+  },
+  "INDEX": {
+    "title": "Index",
+    "status": {
+      "title": "Status"
+    }
+  },
+  "AUDIO": {
+    "title": "Audio settings",
+    "segments": [],
+    "GLOBAL_SETTINGS": "Global settings",
+    "LMS_SETTINGS": "Squeezelite Configuration",
+    "ADVANCED_SETTINGS": "Advanced Settings",
+    "playername": {
+      "label": "Audio player name",
+      "help": ""
+    },
+    "rate": {
+      "label": "Samplerate",
+      "help": ""
+    },
+    "soundcard": {
+      "label": "Audio card",
+      "help": ""
+    },
+    "volume_start": {
+      "label": "Startup volume",
+      "help": ""
+    },
+    "lms_servername": {
+      "label": "Servername or IP",
+      "help": ""
+    },
+    "lms_user": {
+      "label": "Username (optional)",
+      "help": ""
+    },
+    "lms_pwd": {
+      "label": "Userpass (optional)",
+      "help": ""
+    },
+    "lms_serverport": {
+      "label": "Server port",
+      "help": ""
+    },
+    "channels": {
+      "label": "Output channels",
+      "help": ""
+    },
+    "mscoding": {
+      "label": "Mid/Side Processing",
+      "help": ""
+    },
+    "jackbuffer": {
+      "label": "Jack buffer size",
+      "help": ""
+    },
+    "jackperiod": {
+      "label": "Jack period size",
+      "help": ""
+    },
+    "squeeze_alsabuffer": {
+      "label": "Squeezelite buffer size",
+      "help": ""
+    },
+    "squeeze_alsaperiod": {
+      "label": "Squeezelite period size",
+      "help": ""
+    },
+    "squeeze_intbuffer": {
+      "label": "Squeezelite internal buffer size",
+      "help": ""
+    },
+    "squeeze_outbuffer": {
+      "label": "Squeezelite output buffer size",
+      "help": ""
+    },
+    "shairport_buffer": {
+      "label": "Shairport-sync buffer size",
+      "help": ""
+    },
+    "shairport_period": {
+      "label": "Shairport-sync period size",
+      "help": ""
+    }
+  },
+  "CONVOLVER": {
+    "title": "Convolver",
+    "FILTER_CHOICES": "Filter selection",
+    "COMMENT": "Notes",
+    "segments": [
+      {
+        "title": "Explanatory notes to the Convolution-module",
+        "content": [
+          {
+            "tag": "h5",
+            "content": "Filter banks:"
+          },
+          {
+            "tag": "p",
+            "content": "Clicking the arrow in the drop down menu will select the sample filters delivered with Aroio or filters created and uploaded via the room correction software Acourate (<a href='http://www.audiovero.de' target='_blank'>www.audiovero.de</a>)."
+          },
+          {
+            "tag": "h5",
+            "content": "Switching the active filter:"
+          },
+          {
+            "tag": "p",
+            "content": "Clicking the 'Bank' button will instantly switch to the appropriate filter bank."
+          },
+          {
+            "tag": "h5",
+            "content": "Notes"
+          },
+          {
+            "tag": "p",
+            "content": "Here you can enter any comments regarding the filter banks. Volume matching of filters of different volume. The volume for each filter bank can be entered in dB. Caution: Values greater than 0 dB can possibly lead to clipping and distortion; we suggest attenuating louder filters to match the qieter ones."
+          },
+          {
+            "tag": "h5",
+            "content": "Saving and reloading:"
+          },
+          {
+            "tag": "p",
+            "content": "Clicking the 'Save and reload' button will save the filter sets to the filter banks and load them into the convolution engine. This will take a few seconds."
+          },
+          {
+            "tag": "h5",
+            "content": "Setting parameters:"
+          },
+          {
+            "tag": "p",
+            "content": "The button 'Set parameters' saves the notes and volume settings and applies them immediately."
+          }
+        ]
+      }
+    ]
+  },
+  "MEASURE": {
+    "title": "Measure",
+    "measure": "Measure",
+    "abort": "Abort",
+    "success": "Measurement successful",
+    "restart": "Measure again",
+    "segments": [
+      {
+        "title": "Room Correction Measurement",
+        "content": [
+          {
+            "tag": "p",
+            "content": "For the measurement you need a <a href='https://www.abacus-electronics.de/produkte/streaming/raumkorrektur/minidsp-umik-1.html' target='_blank'>miniDSP UMIK-1</a> USB measurement microphone. The mic has to be connected to one of the USBs on the Aroio."
+          },
+          {
+            "tag": "p",
+            "content": "After clicking [Measure] the stimulus is loaded. This takes several seconds when done for the first time. Afterwards, all frequencies are put out from low to high, once left, right and left again."
+          },
+          {
+            "tag": "p",
+            "content": "For a good measurement the volume should be adjusted such that the level is high enough but the speakers should not reach mechanical limits (especially at low frequencies). Start the measurement with low level first. Click [Cancel], increase the volume and start it again. Repeat this until the level is good. Now let the measurement proceed without changing volume (this take about 3 minutes)."
+          }
+        ]
+      },
+      {
+        "title": "Analysis of the measurement",
+        "content": [
+          {
+            "tag": "p",
+            "content": "After a succesful measurement the result can be imported from a PC over LAN with the software AudioVero Acourate or AcourateCV."
+          },
+          {
+            "tag": "p",
+            "content": "A 14-day testversion of AcourateCV can be downloaded here:"
+          },
+          {
+            "tag": "p",
+            "content": "<a href='http://www.audiovero.de/AcourateCV/AcourateCV_Setup32.exe' title='AcourateCV for Windows 32-Bit' target='_blank'>Windows 32Bit</a> or <a href='http://www.audiovero.de/AcourateCV/AcourateCV_Setup64.exe' title='AcourateCV for Windows 64-Bit' target='_blank'>Windows 64Bit</a>"
+          },
+          {
+            "tag": "p",
+            "content": "With this trial version the measurement can be plotted and the room acoustics can be analysed. After upgrading to full version correction filters can be generated and uploaded to the Aroio."
+          }
+        ]
+      }
+    ]
+  },
+  "NETWORK": {
+    "title": "Network settings",
+    "segments": [],
+    "LAN_SETTINGS": "Ethernet",
+    "LAN_SETTINGS": "WiFi",
+    "hostname": {
+      "label": "Hostname",
+      "help": ""
+    },
+    "lan_dhcp": {
+      "label": "DHCP",
+      "help": ""
+    },
+    "lan_ipaddr": {
+      "label": "IP-Address",
+      "help": ""
+    },
+    "lan_netmask": {
+      "label": "Netmask",
+      "help": ""
+    },
+    "lan_gateway": {
+      "label": "Gateway",
+      "help": ""
+    },
+    "lan_dnsserv": {
+      "label": "DNS-Server",
+      "help": ""
+    },
+    "wlan_ipaddr": {
+      "label": "IP-Address",
+      "help": ""
+    },
+    "wlan_netmask": {
+      "label": "Netmask",
+      "help": ""
+    },
+    "wlan_gateway": {
+      "label": "Gateway",
+      "help": ""
+    },
+    "wlan_dnsserv": {
+      "label": "DNS-Server",
+      "help": ""
+    }
+  },
+  "SYSTEM": {
+    "title": "System settings",
+    "segments": []
+  },
+  "CREDITS": {
+    "title": "Credits",
+    "segments": [
+      {
+        "title": "Aroio - Infos und Links",
+        "content": [
+          {
+            "tag": "p",
+            "content": "<a title='Aroio Streaming allgemein' href='https://www.abacus-electronics.de/produkte/streaming.html' target='_blank'>Allgemeine Informationen</a> zum Thema Aroio-Streaming"
+          },
+          {
+            "tag": "p",
+            "content": "<a title='AroioOS - Betriebssystem' href='https://www.abacus-electronics.de/produkte/streaming/aroioos.html' target='_blank'>AroioOS</a> - das Betriebssystem auf den Aroio-Produkten"
+          },
+          {
+            "tag": "p",
+            "content": "<a title='TeamViewer QuickSupport' href='https://get.teamviewer.com/abacus-electronics' target='_blank'>TeamViewer QuickSupport</a> - schnelle Hilfe bei Problemen mit der Einrichtung"
+          },
+          {
+            "tag": "p",
+            "content": "<a title='ABACUS-Aroio-Forum' href='https://www.abacus-electronics.de/forum/index.php' target='_blank'>ABACUS-Aroio-Forum</a> - Information und Diskussion"
+          }
+        ]
+      },
+      {
+        "title": "Verwendete Open Source Module",
+        "content": [
+          {
+            "tag": "p",
+            "content": "<a href='https://www.ludd.ltu.se/~torger/brutefir.html' target='_blank'>BruteFIR</a> – Software Convolution engine</p>"
+          },
+          {
+            "tag": "p",
+            "content": "<a href='https://github.com/hzeller/gmrender-resurrect' target='_blank'>GMediaRenderer Resurrect</a> – Resource efficient UPnP/DLNA renderer</p>"
+          },
+          {
+            "tag": "p",
+            "content": "<a href='http://wiki.slimdevices.com/index.php/Logitech_Media_Server' target='_blank'>Logitech Media Server</a> – Flexible Multimedia Server Software</p>"
+          },
+          {
+            "tag": "p",
+            "content": "<a href='https://github.com/mikebrady/shairport-sync' target='_blank'>Shairport Sync</a> – AirPlay audio player</p>"
+          },
+          {
+            "tag": "p",
+            "content": "<a href='https://code.google.com/archive/p/squeezelite/' target='_blank'>Squeezelite</a> – Headless squeezebox emulator for linux/osx/windows</p> "
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+<template>
+  <b-container>
+    <h1 class="mt-2">{{ $t('SYSTEM.title') }}</h1>
+    <b-row
+      >
+      <b-col
+        lg="9"
+        >
+        <b-card
+          class="mb-4"
+          >
+          <input-field
+            section="SYSTEM"
+            item="platform"
+            type="options"
+            :options="platforms"
+            ></input-field>
+
+          <input-field
+            section="SYSTEM"
+            item="userpasswd"
+            type="text"
+            ></input-field>
+
+          <input-field
+            section="SYSTEM"
+            item="btkey"
+            type="text"
+            ></input-field>
+        </b-card>
+        <b-card
+          class="mb-4"
+          >
+          <input-field
+            section="SYSTEM"
+            item="advanced"
+            type="checkbox"
+            ></input-field>
+
+          <input-field
+            section="SYSTEM"
+            v-if="advanced"
+            item="usebeta"
+            type="checkbox"
+            ></input-field>
+        </b-card>
+      </b-col>
+    </b-row>
+  </b-container>
+</template>
+<style scoped>
+</style>
+<script>
+import InputField from '~/components/InputField';
+
+export default {
+  components: { InputField },
+  computed: {
+    advanced() {
+      return this.$store.state.config.advanced === "ON"
+    }
+  },
+  data() {
+    return {
+      platforms: ['AroioEX','AroioSU','AroioLT','RaspberryPi']
+    }
+  }
+};
+</script>

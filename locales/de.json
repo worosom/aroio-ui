@@ -1,0 +1,339 @@
+{
+  "language": "Sprache",
+  "save_settings": "Einstellungen anwenden",
+  "reboot": "Neustart",
+  "cleaner": "MS Kodierung",
+  "links": {
+    "audio": "Audio",
+    "convolver": "Convolver",
+    "measure": "Messung",
+    "network": "Netzwerk",
+    "system": "System",
+    "credits": "Credits"
+  },
+  "modals": {
+    "reboot": {
+      "title": "Neustart"
+    }
+  },
+  "INDEX": {
+    "title": "Übersicht",
+    "status": {
+      "title": "Status"
+    }
+  },
+  "AUDIO": {
+    "title": "Audioeinstellungen",
+    "segments": [],
+    "GLOBAL_SETTINGS": "Globale Audioeinstellungen",
+    "LMS_SETTINGS": "Squeezelite Konfiguration",
+    "ADVANCED_SETTINGS": "Erweiterte Audioeinstellungen",
+    "playername": {
+      "label": "Audioplayer Name",
+      "help": ""
+    },
+    "rate": {
+      "label": "Samplerate",
+      "help": ""
+    },
+    "soundcard": {
+      "label": "Soundkarte",
+      "help": "Auswahl der verwendeten Soundkarte. Eine &Auml;nderung erfordert einen Neustart."
+    },
+    "volume_start": {
+      "label": "Start-Lautstärke",
+      "help": "Start-Ausgabelautstärke des Gerätes"
+    },
+    "lms_servername": {
+      "label": "Servername oder IP",
+      "help": ""
+    },
+    "lms_user": {
+      "label": "Benutzername (optional)",
+      "help": ""
+    },
+    "lms_pwd": {
+      "label": "Passwort (optional)",
+      "help": ""
+    },
+    "lms_serverport": {
+      "label": "Server Port",
+      "help": ""
+    },
+    "channels": {
+      "label": "Ausgabe Kanäle",
+      "help": ""
+    },
+    "mscoding": {
+      "label": "Mid/Side Processing",
+      "help": ""
+    },
+    "jackbuffer": {
+      "label": "Jack Puffergröße",
+      "help": ""
+    },
+    "jackperiod": {
+      "label": "Jack Periodengröße",
+      "help": ""
+    },
+    "squeeze_alsabuffer": {
+      "label": "Squeezelite Puffergröße",
+      "help": ""
+    },
+    "squeeze_alsaperiod": {
+      "label": "Squeezelite Periodengröße",
+      "help": ""
+    },
+    "squeeze_intbuffer": {
+      "label": "Squeezelite interne Puffergröße",
+      "help": ""
+    },
+    "squeeze_outbuffer": {
+      "label": "Squeezelite Ausgabe-Puffergröße",
+      "help": ""
+    },
+    "shairport_buffer": {
+      "label": "Shairport-sync Puffergröße",
+      "help": ""
+    },
+    "shairport_period": {
+      "label": "Shairport-sync Periodengröße",
+      "help": ""
+    },
+    "sprate": {
+      "label": "Shairport-sync Samplerate",
+      "help": ""
+    },
+    "resampling": {
+      "label": "Resampling Qualität",
+      "help": ""
+    }
+  },
+  "CONVOLVER": {
+    "title": "Convolver",
+    "FILTER_CHOICES": "Filterauswahl",
+    "COMMENT": "Notizen",
+    "segments": [
+      {
+        "title": "Erläuterungen zum Convolver-Modul",
+        "content": [
+          {
+            "tag": "h5",
+            "content": "Filterbänke:"
+          },
+          {
+            "tag": "p",
+            "content": "Per Klick auf den Pfeil im Dropdown-Menü kann aus den mit Aroio ausgelieferten Beispielfiltern oder Filtern, die über die Raumkorrektur-Software Acourate (<a href='http://www.audiovero.de' target='_blank'>http://www.audiovero.de</a>) erstellt und hochgeladen wurden, ausgewählt werden."
+          },
+          {
+            "tag": "h5",
+            "content": "Umschalten des Aktiven Filters:"
+          },
+          {
+            "tag": "p",
+            "content": "Durch Klick auf den Button \"Bank\" wird sofort auf die betreffende Filterbank umgeschaltet."
+          },
+          {
+            "tag": "h5",
+            "content": "Notiz-Feld"
+          },
+          {
+            "tag": "p",
+            "content": "Im Notizfeld kann ein beliebiger Kommentar zur Filterbank eingegeben werden."
+          },
+          {
+            "tag": "h5",
+            "content": "Speichern und neu laden:"
+          },
+          {
+            "tag": "p",
+            "content": "Klick auf \"Speichern und neu laden\" speichert die Filtersätze in den Filterbänken und lädt diese in die Convolution-Engine. Dies dauert ein paar Sekunden."
+          },
+          {
+            "tag": "h5",
+            "content": "Parameter setzen:"
+          },
+          {
+            "tag": "p",
+            "content": "Der Button \"Setze Parameter\" speichert die Notiz- und Lautstärke-Einstellungen und wendet diese sofort an."
+          }
+        ]
+      }
+    ]
+  },
+  "MEASURE": {
+    "title": "Messung",
+    "measure": "Messen",
+    "abort": "Abbrechen",
+    "success": "Messung erfolgreich",
+    "restart": "Erneut messen",
+    "segments": [
+      {
+        "title": "Raumkorrekturmessung",
+        "content": [
+          {
+            "tag": "p",
+            "content": "Zur Messung wird ein <a href='https://www.abacus-electronics.de/produkte/streaming/raumkorrektur/minidsp-umik-1.html' title='UMIK-1 ABACUS-Shop' target='_blank'>miniDSP UMIK-1</a> USB-Messmikrofon benötigt. Das Mikrofon wird an der Hörposition aufgestellt und an einem der USB-Anschlüsse am Aroio angeschlossen."
+          },
+          {
+            "tag": "p",
+            "content": "Nach Klick auf \"Messung\" wird das Messsignal geladen. Das dauert beim ersten Mal einige Sekunden. Danach durchläuft das Signal alle Frequenzen von tief bis hoch einmal links, einmal rechts und noch einmal links."
+          },
+          {
+            "tag": "p",
+            "content": "Für eine optimale Messung sollte eine Lautstärke eingestellt werden, dass der Pegel ausreichend hoch ist, ohne dass die Lautsprecher (vor allem im Bass) mechanisch an Grenzen sto&szlig;en. Starten Sie die Messung zunächst mit einer geringen Lautstärke. Klicken Sie auf \"Abbruch\", erhöhen Sie sie und starten Sie die Messung erneut. Das wiederholen Sie bis der Pegel stimmt. Lassen Sie dann die Messung komplett durchlaufen ohne die Lautstärke zu ändern (dauert ca. 3 Minuten)."
+          }
+
+        ]
+      },
+      {
+        "title": "Auswertung der Messung",
+        "content": [
+          {
+            "tag": "p",
+            "content": "Nach erfolgreicher Messung kann das Ergebnis mit AudioVero Acourate oder AcourateCV von einem PC über das Netzwerk importiert und ausgewertet werden."
+          },
+          {
+            "tag": "p",
+            "content": "Eine 14-tägige Testversion von AcourateCV kann hier heruntergeladen werden:"
+          },
+          {
+            "tag": "p",
+            "content": "<a class='forward'href='http://www.audiovero.de/AcourateCV/AcourateCV_Setup32.exe' title='AcourateCV for Windows 32-Bit' target='_blank'>Windows 32Bit</a> oder <a class='forward' href='http://www.audiovero.de/AcourateCV/AcourateCV_Setup64.exe' title='AcourateCV for Windows 64-Bit' target='_blank'>Windows 64Bit</a>"
+          },
+          {
+            "tag": "p",
+            "content": "Mit dieser Testversion kann die Messung ausgewertet und damit die Raumakustik analysiert werden. Nach Upgrade auf die Vollversion können entsprechende Korrekturfilter erstellt und auf den Streamer gespeichert werden."
+          }
+        ]
+      }
+    ]
+  },
+  "NETWORK": {
+    "title": "Netzwerk",
+    "segments": [],
+    "lan_settings": "Ethernet",
+    "wlan_settings": "WLAN",
+    "wlanpwd": "WLAN Schlüssel",
+    "wlan_search": "Scan",
+    "hostname": {
+      "label": "Hostname",
+      "help": "24 alphanumerische Zeichen (a-Z), (0-9) und/oder das Minus-Zeichen - sind erlaubt. Keine Leerzeichen oder Tabstops. Das erste sowie letzte Zeichen muss ein Buchstabe oder eine Zahl sein."
+    },
+    "lan_dhcp": {
+      "label": "DHCP",
+      "help": "DHCP richtet automatisch die dem Netzwerk entsprechenden Verbindungsparameter ein, sofern der Router/Acces Point dies unterstützt (was meist der Fall ist)."
+    },
+    "lan_ipaddr": {
+      "label": "IP-Addresse",
+      "help": "Eine gültige IP-Adresse hat die Form xxx.xxx.xxx.xxx wobei xxx für eine Zahl von 0 - 255 steht."
+    },
+    "lan_netmask": {
+      "label": "Netzwerk-Maske",
+      "help": "Die im privaten Bereich meist gebräuchliche Netzwerkmaske ist die 255.255.255.0. Sofern nicht SICHER BEKANNT ist, dass eine andere Maske zum Netzwerk gehört, sollte diese die richtige sein."
+    },
+    "lan_gateway": {
+      "label": "Gateway",
+      "help": "Eingabefeld für die IP-Adresse oder den Hostnamen des Gateways/Routers/Access-Points."
+    },
+    "lan_dnsserv": {
+      "label": "DNS-Server",
+      "help": "Eingabefeld für die IP-Adresse des DNS-Servers. In den meisten Fällen privater Netzwerke ist dies die Adresse des Routers/Access-Points."
+    },
+    "wlan_dhcp": {
+      "label": "DHCP",
+      "help": "DHCP richtet automatisch die dem Netzwerk entsprechenden Verbindungsparameter ein, sofern der Router/Acces Point dies unterstützt (was meist der Fall ist)."
+    },
+    "wlan_ipaddr": {
+      "label": "IP-Addresse",
+      "help": "Eine gültige IP-Adresse hat die Form xxx.xxx.xxx.xxx wobei xxx für eine Zahl von 0 - 255 steht."
+    },
+    "wlan_netmask": {
+      "label": "Netzwerk-Maske",
+      "help": "Die im privaten Bereich meist gebräuchliche Netzwerkmaske ist die 255.255.255.0. Sofern nicht SICHER BEKANNT ist, dass eine andere Maske zum Netzwerk gehört, sollte diese die richtige sein."
+    },
+    "wlan_gateway": {
+      "label": "Gateway",
+      "help": "Eingabefeld für die IP-Adresse oder den Hostnamen des Gateways/Routers/Access-Points."
+    },
+    "wlan_dnsserv": {
+      "label": "DNS-Server",
+      "help": "Eingabefeld für die IP-Adresse des DNS-Servers. In den meisten Fällen privater Netzwerke ist dies die Adresse des Routers/Access-Points."
+    }
+  },
+  "SYSTEM": {
+    "title": "Systemeinstellungen",
+    "segments": [],
+    "platform": {
+      "label": "Hardware Plattform",
+      "help": "Auswahl der Hardware-Plattform. Erfordert Neustart. Eine falsche Auswahl kann zu Fehlfunktionen führen."
+    },
+    "userpasswd": {
+      "label": "Konfigurations-Passwort",
+      "help": "Eingabefeld für das Passwort der Weboberfläche. Der Benutzername ist stets aroio."
+    },
+    "btkey": {
+      "label": "Bluetooth Key",
+      "help": ""
+    },
+    "advanced": {
+      "label": "Zeige erweiterte Einstellungen",
+      "help": ""
+    },
+    "usebeta": {
+      "label": "Beta-Version nutzen",
+      "help": ""
+    }
+  },
+  "CREDITS": {
+    "title": "Credits",
+    "segments": [
+      {
+        "title": "Aroio - Infos und Links",
+        "content": [
+          {
+            "tag": "p",
+            "content": "<a title='Aroio Streaming allgemein' href='https://www.abacus-electronics.de/produkte/streaming.html' target='_blank'>Allgemeine Informationen</a> zum Thema Aroio-Streaming"
+          },
+          {
+            "tag": "p",
+            "content": "<a title='AroioOS - Betriebssystem' href='https://www.abacus-electronics.de/produkte/streaming/aroioos.html' target='_blank'>AroioOS</a> - das Betriebssystem auf den Aroio-Produkten"
+          },
+          {
+            "tag": "p",
+            "content": "<a title='TeamViewer QuickSupport' href='https://get.teamviewer.com/abacus-electronics' target='_blank'>TeamViewer QuickSupport</a> - schnelle Hilfe bei Problemen mit der Einrichtung"
+          },
+          {
+            "tag": "p",
+            "content": "<a title='ABACUS-Aroio-Forum' href='https://www.abacus-electronics.de/forum/index.php' target='_blank'>ABACUS-Aroio-Forum</a> - Information und Diskussion"
+          }
+        ]
+      },
+      {
+        "title": "Verwendete Open Source Module",
+        "content": [
+          {
+            "tag": "p",
+            "content": "<a href='https://www.ludd.ltu.se/~torger/brutefir.html' target='_blank'>BruteFIR</a> – Software Convolution engine</p>"
+          },
+          {
+            "tag": "p",
+            "content": "<a href='https://github.com/hzeller/gmrender-resurrect' target='_blank'>GMediaRenderer Resurrect</a> – Resource efficient UPnP/DLNA renderer</p>"
+          },
+          {
+            "tag": "p",
+            "content": "<a href='http://wiki.slimdevices.com/index.php/Logitech_Media_Server' target='_blank'>Logitech Media Server</a> – Flexible Multimedia Server Software</p>"
+          },
+          {
+            "tag": "p",
+            "content": "<a href='https://github.com/mikebrady/shairport-sync' target='_blank'>Shairport Sync</a> – AirPlay audio player</p>"
+          },
+          {
+            "tag": "p",
+            "content": "<a href='https://code.google.com/archive/p/squeezelite/' target='_blank'>Squeezelite</a> – Headless squeezebox emulator for linux/osx/windows</p> "
+          }
+        ]
+      }
+    ]
+  }
+}
