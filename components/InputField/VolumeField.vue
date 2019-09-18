@@ -1,3 +1,12 @@
+<style lang="scss">
+.input-group {
+  &-prepend &-text {
+    width: 76px;
+    display: block;
+    text-align: right;
+  }
+}
+</style>
 <template>
   <b-row class="mb-2"
     v-b-tooltip.hover :title="$t(disabled ? '' : `${section}.${item}.help`)"
