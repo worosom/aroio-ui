@@ -1,12 +1,12 @@
 SHELL := /bin/bash
-NODE_PATH = $(shell ./find-node-or-install)
+NODE_PATH = $(shell NODE_VERSION=12 ./find-node-or-install/find-node-or-install)
 PATH := $(NODE_PATH):$(shell echo $$PATH)
 
 .PHONY: $(YARN_BIN) clean
 
 YARN_BIN = yarn
 $(YARN_BIN):
-	$(NODE_PATH)npm i -g yarn
+	$(NODE_PATH)/npm i -g yarn
 
 all: node_modules
 	mkdir dist

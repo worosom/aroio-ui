@@ -1,3 +1,6 @@
 [submodule "api"]
 	path = api
 	url = https://github.com/worosom/aroio-api.git
+[submodule "find-node-or-install"]
+	path = find-node-or-install
+	url = https://github.com/hugojosefson/find-node-or-install.git
