@@ -6,7 +6,7 @@ export default {
       get() {
         if (this.disabled) {
           if (this.item.startsWith('lan') || this.item.startsWith('wlan')) {
-            return this.$store.state.network[this.item]
+            return this.$store.state.system.network[this.item]
           }
         }
         return this.$store.state.config[this.item]

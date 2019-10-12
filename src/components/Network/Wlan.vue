@@ -1,72 +1,5 @@
-<style scoped>
-.wlan_list__container {
-  position: relative;
-}
-.wlan_list__container .list-group {
-  transition: max-height 200ms ease-in;
-  max-height: 244px;
-  overflow: scroll;
-}
-.wlan_list__container.expanded .list-group {
-  max-height: unset;
-}
-.wlan_list__container .list-group-item {
-  cursor: pointer;
-  transition: background-color 200ms ease-in-out;
-}
-.wlan_list__container .list-group-item:hover:not(.active) {
-  background-color: #F0F0F0;
-}
-
-.wlan_list__expander {
-  cursor: pointer;
-  position: absolute;
-  bottom: -25px;
-  left: -1px;
-  width: calc(100% + 2px);
-  height: 25px;
-  text-align: center;
-  background-color: #FAFAFA;
-  border: 1px solid #00aaaa;
-  border-radius: 0 0 5px 5px;
-  transition: background 200ms ease-in-out;
-}
-
-.wlan_list__expander:hover {
-  background-color: #00aaaa;
-}
-
-.wlan_list__expander:after {
-  content: '';
-  position: absolute;
-  top: 6px;
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-
-  border-top: 12px solid #00aaaa;
-  transition: border-color 200ms ease-in-out;
-}
-.wlan_list__expander:hover:after {
-  border-top: 12px solid #FFF;
-}
-.wlan_pwd__group .btn {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.wlan_list__card .btn.scanning:after {
-  content: "...";
-  position: absolute;
-  transform: translateX(.5rem);
-  animation: scanning 500ms infinite;
-  animation-direction: alternate;
-}
-@keyframes scanning {
-  0% { color: transparent; }
-  100% { color: inherit; }
-}
+<style scoped lang="scss">
+@import './Wlan.scss'
 </style>
 <template>
   <b-card
@@ -94,6 +27,7 @@
           >{{ item }}</b-list-group-item>
         <b-list-group-item
           active
+          :disabled="wlan_link"
           v-if="list.length == 0 && ssid"
           >{{ ssid }}</b-list-group-item>
       </b-list-group>
@@ -147,6 +81,10 @@ export default {
     }
   },
   computed: {
+    link() {
+      return false
+      return this.$store.state.system.network.wlan_link
+    },
     ssid: {
       get() {
         return this.$store.state.config.wlanssid

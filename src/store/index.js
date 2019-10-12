@@ -7,7 +7,9 @@ export const state = () => ({
   locale: 'de',
   status: 'loading',
   config: {},
-  network: {},
+  system: {
+    network: {}
+  },
   iwlist: [],
   convolver: {
     choices: []
@@ -39,9 +41,9 @@ export const mutations = {
     if (convolver)
       state.convolver = convolver;
   },
-  LOAD_NETWORK(state, network) {
-    if (network)
-      state.network = network;
+  LOAD_SYSTEM(state, system) {
+    if (system)
+      state.system = system;
   },
   SET_VALUE(state, {section, key, value}) {
     if (!state.dirty)
@@ -49,7 +51,7 @@ export const mutations = {
     state.config[key] = value
     if (section == 'BRUTEFIR') {
       if (key == 'def_coeff') {
-	this.dispatch('APPLY_DEF_COEFF')
+        this.dispatch('APPLY_DEF_COEFF')
       }
     }
   },
@@ -80,7 +82,7 @@ export const actions = {
     Promise.all([
       commit('LOAD_CONFIG', res.data.config),
       commit('LOAD_FILTERS', res.data.convolver),
-      commit('LOAD_NETWORK', res.data.network),
+      commit('LOAD_SYSTEM', res.data.system),
       commit('STATUS', res.data.status)
     ]);
   },

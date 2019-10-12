@@ -9,7 +9,7 @@
           <b-row class="mb-2">
             <b-col>
               <p>Hostname: {{ $store.state.config.hostname }}</p>
-              <p>14:43:25 up 1 day, 29 min,  load average: 1.00, 1.00, 1.00</p>
+              <p>{{uptime}}</p>
             </b-col>
           </b-row>
           <b-row>
@@ -63,21 +63,22 @@
 <script>
 export default {
   computed: {
+    uptime() { return this.$store.state.system.uptime },
     interfaces() {
       return [
         {
           name: 'eth0',
-          mac: this.$store.state.network.mac_addr_eth,
-          addr: this.$store.state.network.ip_addr_eth,
-          mask: this.$store.state.network.netmask_eth,
-          link: true
+          mac: this.$store.state.system.network.lan_macaddr,
+          addr: this.$store.state.system.network.lan_ipaddr,
+          mask: this.$store.state.system.network.lan_netmask,
+          link: this.$store.state.system.network.lan_link
         },
         {
           name: 'wlan0',
-          mac: this.$store.state.network.mac_addr_wlan,
-          addr: this.$store.state.network.ip_addr_wlan,
-          mask: this.$store.state.network.netmask_wlan,
-          link: false
+          mac: this.$store.state.system.network.wlan_macaddr,
+          addr: this.$store.state.system.network.wlan_ipaddr,
+          mask: this.$store.state.system.network.wlan_netmask,
+          link: this.$store.state.system.network.wlan_link
         }
       ]
     }

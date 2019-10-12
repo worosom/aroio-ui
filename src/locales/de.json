@@ -38,7 +38,7 @@
     },
     "soundcard": {
       "label": "Soundkarte",
-      "help": "Auswahl der verwendeten Soundkarte. Eine &Auml;nderung erfordert einen Neustart."
+      "help": "Auswahl der verwendeten Soundkarte. Eine Änderung erfordert einen Neustart."
     },
     "volume_start": {
       "label": "Start-Lautstärke",

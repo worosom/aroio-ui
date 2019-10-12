@@ -106,7 +106,7 @@ export default {
   components: { InputField, wlan },
   computed: {
     has_wlan() {
-      return this.$store.state.network.has_wlan
+      return this.$store.state.system.network.has_wlan
     },
     lan_static() {
       return this.$store.state.config.lan_dhcp !== 'ON';
@@ -115,11 +115,11 @@ export default {
       return this.$store.state.config.wlan_dhcp !== 'ON';
     },
     lan_ipaddr: {
-      get() { return this.$store.state.network.ip_addr_eth },
+      get() { return this.$store.state.system.network.ip_addr_eth },
       set(val) {}
     },
     lan_netmask: {
-      get() { return this.$store.state.network.netmask_eth },
+      get() { return this.$store.state.system.network.netmask_eth },
       set(val) {}
     },
     lan_gateway: {
@@ -127,11 +127,11 @@ export default {
       set(val) {}
     },
     wlan_ipaddr: {
-      get() { return this.$store.state.network.ipaddr_wlan },
+      get() { return this.$store.state.system.network.ipaddr_wlan },
       set(val) {}
     },
     wlan_netmask: {
-      get() { return this.$store.state.network.netmask_wlan },
+      get() { return this.$store.state.system.network.netmask_wlan },
       set(val) {}
     }
   }

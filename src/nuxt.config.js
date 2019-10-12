@@ -74,8 +74,6 @@ module.exports = {
     '@nuxtjs/axios'
   ],
   bootstrapVue: {
-    css: false,
-    bvCSS: false,
     componentPlugins: [
       'Navbar',
       'Button',
@@ -93,6 +91,9 @@ module.exports = {
       'FormSelectPlugin',
       'FormInputPlugin',
       'InputGroupPlugin',
+    ],
+    directivePlugins: [
+      'VBPopoverPlugin'
     ]
   },
   axios: {
