@@ -1,6 +1,6 @@
 const apiPort = 5000;
-//const genRequestUrl = () => `${window.location.protocol}//${window.location.host.split(':')[0]}:${apiPort}/api`;
-const genRequestUrl = () => `http://10.0.1.37:${apiPort}/api`;
+const genRequestUrl = () => `${window.location.protocol}//${window.location.host.split(':')[0]}:${apiPort}/api`;
+// const genRequestUrl = () => `http://10.0.1.2:${apiPort}/api`;
 
 export const state = () => ({
   locales: ['de', 'en'],
