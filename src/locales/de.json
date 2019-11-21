@@ -2,7 +2,7 @@
   "language": "Sprache",
   "save_settings": "Einstellungen anwenden",
   "reboot": "Neustart",
-  "cleaner": "MS Kodierung",
+  "cleaner": "Clean",
   "links": {
     "audio": "Audio",
     "convolver": "Convolver",
@@ -76,14 +76,6 @@
       "label": "Jack Periodengröße",
       "help": ""
     },
-    "squeeze_alsabuffer": {
-      "label": "Squeezelite Puffergröße",
-      "help": ""
-    },
-    "squeeze_alsaperiod": {
-      "label": "Squeezelite Periodengröße",
-      "help": ""
-    },
     "squeeze_intbuffer": {
       "label": "Squeezelite interne Puffergröße",
       "help": ""
@@ -107,6 +99,10 @@
     "resampling": {
       "label": "Resampling Qualität",
       "help": ""
+    },
+    "bf_partitions": {
+      "label": "BruteFIR Partitionen",
+      "help": "Anzahl der parallel abzuarbeitenden BruteFIR Partitionen."
     }
   },
   "CONVOLVER": {

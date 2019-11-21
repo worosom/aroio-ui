@@ -60,7 +60,7 @@ label {
       v-if="type === 'quality'"
       :section="section"
       :item="item"
-      :options="['low', 'medium', 'high']"
+      :options="['speexrate_low', 'speexrate_medium', 'speexrate_high']"
       :disabled="disabled"
       ></options-field>
     <checkbox-field
@@ -86,7 +86,7 @@ export default {
     getBufferSizes() {
       let arr = [];
       for (let i = 16; i <= 65536; i+=i) {
-        arr.push(`${i}`)
+        arr.push(i)
       }
       return arr
     }

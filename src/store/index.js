@@ -1,6 +1,6 @@
-const apiPort = 5000;
-const genRequestUrl = () => `${window.location.protocol}//${window.location.host.split(':')[0]}:${apiPort}/api`;
-// const genRequestUrl = () => `http://10.0.1.2:${apiPort}/api`;
+const apiPort = 81;
+// const genRequestUrl = () => `${window.location.protocol}//${window.location.host.split(':')[0]}:${apiPort}/api`;
+const genRequestUrl = () => `http://192.168.1.20:${apiPort}/api`;
 
 export const state = () => ({
   locales: ['de', 'en'],
@@ -46,6 +46,7 @@ export const mutations = {
       state.system = system;
   },
   SET_VALUE(state, {section, key, value}) {
+    console.log(section, key, value)
     if (!state.dirty)
       state.dirty = state.config[key] !== value;
     state.config[key] = value
@@ -76,9 +77,7 @@ export const mutations = {
 export const actions = {
   async nuxtServerInit({ commit }) {
     const requestUrl = `${genRequestUrl()}`;
-    console.log(requestUrl);
     const res = await this.$axios.get(requestUrl);
-    console.log(res.data);
     Promise.all([
       commit('LOAD_CONFIG', res.data.config),
       commit('LOAD_FILTERS', res.data.convolver),
@@ -92,7 +91,6 @@ export const actions = {
     const res = await this.$axios.put(requestUrl, {
       'config': state.config
     });
-    console.log(res.data);
     await commit('LOAD_CONFIG', res.data.config);
     await commit('STATUS', res.data.status);
   },

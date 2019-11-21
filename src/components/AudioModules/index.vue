@@ -8,7 +8,6 @@
   width: 100%;
 }
 
-.audiomodules .cleaner,
 .audiomodules .inputs {
   position: relative;
 }
@@ -30,6 +29,10 @@
   opacity: .1;
   z-index: 2;
 }
+
+.output_select_button {
+  font-weight: bold;
+}
 </style>
 <template>
   <b-card
@@ -40,19 +43,20 @@
           <b-button-group
                           class="mb-2">
             <b-dropdown
-              :text="audio_output_label"
               variant="outline-primary"
-              class="output_select_button"
               @shown="output_dropdown_selecting = true"
               @hidden="output_dropdown_selecting = false"
               >
+              <template v-slot:button-content>
+                <b>{{audio_output_label}}</b>
+              </template>
               <b-dropdown-item-button
                 v-for="(item, key) in audio_outputs"
                 :key="key"
-                @click="audio_output = `${item.value}${cleaner ? '-ms' : ''}`"
+                @click="audio_output = item.value"
                 style="text-align: center"
                 >
-                {{ `${item.label}${cleaner ? ' MS' : ''}` }}
+                {{item.label}}
               </b-dropdown-item-button>
             </b-dropdown>
           </b-button-group>
@@ -60,21 +64,13 @@
       <b-form-row class="mb-4 inputs">
         <div class="backdrop"></div>
         <audio-inputs
-          v-for="item in audio_outputs_ms"
+          v-for="item in audio_outputs"
           :item="item"
           :key="item.value"
           class="audiomodules__inputs__row"
           :active="audio_output == item.value"
           v-if="audio_output == item.value"
           ></audio-inputs>
-      </b-form-row>
-      <b-form-row class="cleaner">
-        <div class="backdrop"></div>
-        <b-btn :pressed.sync="cleaner"
-          :variant="cleaner ? 'outline-primary' : 'outline-warning'"
-          >
-          {{ $t('cleaner') }}
-        </b-btn>
       </b-form-row>
     </b-container>
   </b-card>
@@ -92,17 +88,6 @@ export default {
     }
   },
   computed: {
-    audio_outputs_ms() {
-      return this.audio_outputs.map(item => {
-        return {
-          name: item.name + (this.cleaner ? 'ms' : ''),
-          value: item.value + (this.cleaner ? 'ms' : ''),
-          label: item.label + (this.cleaner ? '' : ''),
-          type: item.type,
-          selected: item.selected
-        }
-      })
-    },
     audio_output: {
       get() {
         return this.$store.state.config.audio_output;
@@ -115,30 +100,13 @@ export default {
         })
       }
     },
-    cleaner: {
-      get() {
-
-        return this.$store.state.config.mscoding == 'ON'
-      },
-      set(value) {
-        const out = this.audio_output;
-        if (value && !(out.indexOf('ms') > 0))
-          this.audio_output = this.audio_output + 'ms';
-        else if (out.indexOf('ms') > 0) {
-          this.audio_output = out.substring(0, out.length - 2);
-        }
-        value = value ? 'ON' : 'OFF';
-        this.$store.commit('SET_VALUE', {
-          section: 'AUDIO',
-          key: 'mscoding',
-          value
-        });
-      }
-    },
     audio_output_label() {
-      const out = this.audio_outputs_ms.filter(item => {
+      const out = this.audio_outputs.filter(item => {
         return this.audio_output == item.value
       });
+      if (typeof out[0] == 'undefined') {
+        return this.audio_output
+      }
       return out[0].label
     },
     output_dropdown_selecting: {

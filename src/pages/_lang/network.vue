@@ -115,7 +115,7 @@ export default {
       return this.$store.state.config.wlan_dhcp !== 'ON';
     },
     lan_ipaddr: {
-      get() { return this.$store.state.system.network.ip_addr_eth },
+      get() { return this.$store.state.system.network.lan_ipaddr },
       set(val) {}
     },
     lan_netmask: {

@@ -111,18 +111,6 @@
 
             <input-field
               section="AUDIO"
-              item="squeeze_alsabuffer"
-              type="buffersize"
-              ></input-field>
-
-            <input-field
-              section="AUDIO"
-              item="squeeze_alsaperiod"
-              type="periodsize"
-              ></input-field>
-
-            <input-field
-              section="AUDIO"
               item="squeeze_intbuffer"
               type="buffersize"
               ></input-field>
@@ -136,7 +124,15 @@
             <input-field
               section="AUDIO"
               item="sprate"
-              type="buffersize"
+              type="options"
+              :options="['44100', '88200']"
+              ></input-field>
+
+            <input-field
+              section="AUDIO"
+              item="bf_partitions"
+              type="options"
+              :options="['1', '2', '4', '8', '16', '32']"
               ></input-field>
 
             <input-field

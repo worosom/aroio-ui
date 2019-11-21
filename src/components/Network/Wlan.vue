@@ -27,7 +27,6 @@
           >{{ item }}</b-list-group-item>
         <b-list-group-item
           active
-          :disabled="wlan_link"
           v-if="list.length == 0 && ssid"
           >{{ ssid }}</b-list-group-item>
       </b-list-group>
@@ -81,8 +80,7 @@ export default {
     }
   },
   computed: {
-    link() {
-      return false
+    wlan_link() {
       return this.$store.state.system.network.wlan_link
     },
     ssid: {
@@ -123,7 +121,7 @@ export default {
         const el = this.$refs['networklist'];
         el.childNodes.forEach((ch) => {
           if(ch.className && ch.className.indexOf('active') > 0) {
-            el.scrollTop = ch.offsetTop; console.log(ch)
+            el.scrollTop = ch.offsetTop
           }
         })
       }, 100);
@@ -134,7 +132,6 @@ export default {
     scan() {
       this.scanning = true;
       this.$store.dispatch('GET_IWLIST').then((x) => {
-        console.log(this.$store.state)
         this.list = this.$store.state.iwlist
         this.scanning = false;
       });
