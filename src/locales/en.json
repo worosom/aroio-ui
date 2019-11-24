@@ -213,8 +213,12 @@
       "label": "DHCP",
       "help": ""
     },
-    "lan_ipaddr": {
-      "label": "IP-Address",
+    "lan_ipv4addr": {
+      "label": "IPv4-Address",
+      "help": ""
+    },
+    "lan_ipv6addr": {
+      "label": "IPv6-Address",
       "help": ""
     },
     "lan_netmask": {

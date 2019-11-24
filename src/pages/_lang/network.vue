@@ -25,9 +25,17 @@
           <input-field
             :disabled="!lan_static"
             section="NETWORK"
-            item="lan_ipaddr"
+            item="lan_ipv4addr"
             type="ip"
-            :model="lan_ipaddr"
+            :model="lan_ipv4addr"
+            ></input-field>
+
+          <input-field
+            :disabled="!lan_static"
+            section="NETWORK"
+            item="lan_ipv6addr"
+            type="ip"
+            :model="lan_ipv6addr"
             ></input-field>
 
           <input-field
@@ -69,7 +77,14 @@
           <input-field
             :disabled="!wlan_static"
             section="NETWORK"
-            item="wlan_ipaddr"
+            item="wlan_ipv4addr"
+            type="text"
+            ></input-field>
+
+          <input-field
+            :disabled="!wlan_static"
+            section="NETWORK"
+            item="wlan_ipv6addr"
             type="text"
             ></input-field>
 
@@ -114,8 +129,12 @@ export default {
     wlan_static() {
       return this.$store.state.config.wlan_dhcp !== 'ON';
     },
-    lan_ipaddr: {
-      get() { return this.$store.state.system.network.lan_ipaddr },
+    lan_ipv4addr: {
+      get() { return this.$store.state.system.network.lan_ipv4addr },
+      set(val) {}
+    },
+    lan_ipv6addr: {
+      get() { return this.$store.state.system.network.lan_ipv6addr },
       set(val) {}
     },
     lan_netmask: {
@@ -126,8 +145,12 @@ export default {
       get() { return '10.0.1.1' },
       set(val) {}
     },
-    wlan_ipaddr: {
-      get() { return this.$store.state.system.network.ipaddr_wlan },
+    wlan_ipv4addr: {
+      get() { return this.$store.state.system.network.ipv4addr_wlan },
+      set(val) {}
+    },
+    wlan_ipv6addr: {
+      get() { return this.$store.state.system.network.ipv6addr_wlan },
       set(val) {}
     },
     wlan_netmask: {

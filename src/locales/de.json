@@ -220,9 +220,13 @@
       "label": "DHCP",
       "help": "DHCP richtet automatisch die dem Netzwerk entsprechenden Verbindungsparameter ein, sofern der Router/Acces Point dies unterstützt (was meist der Fall ist)."
     },
-    "lan_ipaddr": {
-      "label": "IP-Addresse",
+    "lan_ipv4addr": {
+      "label": "IPv4-Addresse",
       "help": "Eine gültige IP-Adresse hat die Form xxx.xxx.xxx.xxx wobei xxx für eine Zahl von 0 - 255 steht."
+    },
+    "lan_ipv6addr": {
+      "label": "IPv6-Addresse",
+      "help": "Eine gültige IPv6-Adresse besteht aus acht Blocks getrennt durch doppelpunkte, jeder Block bestehend aus vier hexadezimal Zahlen. Alle Null-Gruppen sowie leitende Nullen können ausgelassen werden."
     },
     "lan_netmask": {
       "label": "Netzwerk-Maske",
