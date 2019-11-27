@@ -1,26 +1,5 @@
-<style>
-.main__wrap {
-  padding: 4rem 0;
-}
-.headroom {
-  will-change: transform;
-  transition: transform 200ms linear;
-}
-.headroom--pinned {
-  transform: translateY(0%);
-}
-.headroom--unpinned {
-  transform: translateY(-100%);
-}
-.navbar {
-  box-shadow: 0 0 2px rgba(0,0,0,.5);;
-}
-.headroom--unpinned .navbar {
-  box-shadow: none;
-}
-</style>
 <template>
-  <div class="main__wrap">
+  <div>
     <div v-if="saved"></div>
     <headroom :offset="60">
       <b-navbar toggleable="md"
@@ -63,8 +42,8 @@
 
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
-            <b-nav-item nuxt router :to="$i18n.path('credits')">
-              {{ $t('links.credits') }}
+            <b-nav-item nuxt router :to="$i18n.path('help')">
+              {{ $t('links.help') }}
             </b-nav-item>
             <b-nav-item-dropdown :text="$t('language')" right>
               <b-dropdown-item href="/en">EN</b-dropdown-item>
@@ -75,6 +54,7 @@
       </b-navbar>
     </headroom>
     <b-form onsubmit.stop.prevent="submit()"
+            class="main__wrap"
             action="http://localhost/api/"
             target="_blank"
             method="POST">

@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: [ 'section', 'item', 'type', 'disabled', 'placeholder' ],
+  props: [ 'section', 'item', 'type', 'disabled', 'placeholder', 'autocomplete' ],
   computed: {
     model: {
       get() {

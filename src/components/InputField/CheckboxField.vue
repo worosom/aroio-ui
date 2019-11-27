@@ -1,29 +1,26 @@
 <template>
-  <b-row class="mb-2"
-    v-b-tooltip.hover :title="$t(disabled ? '' : `${section}.${item}.help`)"
+  <b-form-row class="mb-2"
+    v-b-tooltip.hover :title="$t(`${section}.${item}.help`)"
     >
-    <b-col cols="4">
+    <b-col>
       <label :for="item">
         {{ $t(`${section}.${item}.label`) }}
       </label>
     </b-col>
-    <b-col cols="8">
-      <b-input-group
-        >
-        <b-btn :pressed.sync="pressed"
-               variant="primary"
-               class="button_switch ml-auto"
-               :name="item"
-               :id="item"
-               value="ON"
-               unchecked-value="OFF"
-               :disabled="disabled"
-               autocomplete="off">
-              <div class="handle"></div>
-        </b-btn>
-      </b-input-group>
+    <b-col class="text-right" :for="item">
+      <b-btn :pressed.sync="pressed"
+             variant="primary"
+             class="button_switch ml-auto"
+             :name="item"
+             :id="item"
+             value="ON"
+             unchecked-value="OFF"
+             :disabled="disabled"
+             autocomplete="off">
+            <div class="handle"></div>
+      </b-btn>
     </b-col>
-  </b-row>
+  </b-form-row>
 </template>
 <script>
 import _slug from '~/components/InputField/_slug'

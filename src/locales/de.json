@@ -1,5 +1,5 @@
 {
-  "language": "Sprache",
+  "language": "DE",
   "save_settings": "Einstellungen anwenden",
   "reboot": "Neustart",
   "cleaner": "Clean",
@@ -9,7 +9,7 @@
     "measure": "Messung",
     "network": "Netzwerk",
     "system": "System",
-    "credits": "Credits"
+    "help": "?"
   },
   "modals": {
     "reboot": {
@@ -244,9 +244,13 @@
       "label": "DHCP",
       "help": "DHCP richtet automatisch die dem Netzwerk entsprechenden Verbindungsparameter ein, sofern der Router/Acces Point dies unterstützt (was meist der Fall ist)."
     },
-    "wlan_ipaddr": {
-      "label": "IP-Addresse",
+    "wlan_ipv4addr": {
+      "label": "IPv4-Addresse",
       "help": "Eine gültige IP-Adresse hat die Form xxx.xxx.xxx.xxx wobei xxx für eine Zahl von 0 - 255 steht."
+    },
+    "wlan_ipv6addr": {
+      "label": "IPv6-Addresse",
+      "help": "Eine gültige IPv6-Adresse besteht aus acht Blocks getrennt durch doppelpunkte, jeder Block bestehend aus vier hexadezimal Zahlen. Alle Null-Gruppen sowie leitende Nullen können ausgelassen werden."
     },
     "wlan_netmask": {
       "label": "Netzwerk-Maske",
@@ -262,7 +266,8 @@
     }
   },
   "SYSTEM": {
-    "title": "Systemeinstellungen",
+    "title": "System",
+    "update_settings": "Softwareaktualisierung",
     "segments": [],
     "platform": {
       "label": "Hardware Plattform",
@@ -281,8 +286,34 @@
       "help": ""
     },
     "usebeta": {
-      "label": "Beta-Version nutzen",
+      "label": "Beta-Version suchen",
       "help": ""
+    },
+    "search_update": {
+      "label": "Update suchen",
+      "help": ""
+    },
+    "current_version": {
+      "label": "Installierte Version",
+      "help": ""
+    },
+    "available_version": {
+      "label": "Verfügbare Version",
+      "help": ""
+    },
+    "install_update": {
+      "label": "Update installieren",
+      "help": ""
+    },
+    "logs": {
+      "network": "Netzwerk",
+      "kernel": "Kernel",
+      "system": "System",
+      "jackd": "Jackd",
+      "brutefir": "Brutefir",
+      "squeezelite": "Squeezelite",
+      "alsa": "Audio-HW",
+      "download": "Download Logs"
     }
   },
   "CREDITS": {

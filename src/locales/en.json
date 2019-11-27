@@ -1,5 +1,5 @@
 {
-  "language": "Language",
+  "language": "EN",
   "save_settings": "Apply settings",
   "reboot": "Reboot",
   "cleaner": "MS Coding",
@@ -252,6 +252,27 @@
   },
   "SYSTEM": {
     "title": "System settings",
+    "UPDATE_SETTINGS": "Software update",
+    "platform": {
+      "label": "Hardware platform",
+      "help": ""
+    },
+    "userpasswd": {
+      "label": "Password",
+      "help": ""
+    },
+    "btkey": {
+      "label": "Bluetooth key",
+      "help": ""
+    },
+    "advanced": {
+      "label": "Show advanced settings",
+      "help": ""
+    },
+    "usebeta": {
+      "label": "Search for beta versions",
+      "help": ""
+    },
     "segments": []
   },
   "CREDITS": {

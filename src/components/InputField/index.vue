@@ -23,12 +23,18 @@ label {
       :item="item"
       :disabled="disabled"
       ></text-field>
-    <text-field
-      v-if="type === 'ip'"
+    <ip-v4-field
+      v-if="type === 'ipv4'"
       :section="section"
       :item="item"
       :disabled="disabled"
-      ></text-field>
+      ></ip-v4-field>
+    <ip-v6-field
+      v-if="type === 'ipv6'"
+      :section="section"
+      :item="item"
+      :disabled="disabled"
+      ></ip-v6-field>
     <volume-field
       v-if="type === 'volume'"
       :section="section"
@@ -69,19 +75,35 @@ label {
       :item="item"
       :disabled="disabled"
       ></checkbox-field>
+    <password-field
+      v-if="type === 'password'"
+      :section="section"
+      :item="item"
+      :disabled="disabled"
+      ></password-field>
     <hr class="inputfield__divider--after" />
   </div>
 </template>
 <script>
 import TextField from '~/components/InputField/TextField'
-import IpField from '~/components/InputField/IpField'
+import IpV4Field from '~/components/InputField/IpV4Field'
+import IpV6Field from '~/components/InputField/IpV6Field'
 import VolumeField from '~/components/InputField/VolumeField'
 import OptionsField from '~/components/InputField/OptionsField'
 import CheckboxField from '~/components/InputField/CheckboxField'
+import PasswordField from '~/components/InputField/PasswordField'
 
 export default {
   props: [ 'section', 'item', 'type', 'options', 'disabled' ],
-  components: { TextField, IpField, VolumeField, OptionsField, CheckboxField },
+  components: {
+    TextField,
+    IpV4Field,
+    IpV6Field,
+    VolumeField,
+    OptionsField,
+    CheckboxField,
+    PasswordField
+  },
   methods: {
     getBufferSizes() {
       let arr = [];

@@ -3,6 +3,7 @@ const apiPort = 81;
 const genRequestUrl = () => `http://192.168.1.20:${apiPort}/api`;
 
 export const state = () => ({
+  requestUrl: genRequestUrl(),
   locales: ['de', 'en'],
   locale: 'de',
   status: 'loading',
@@ -75,8 +76,8 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit({ commit }) {
-    const requestUrl = `${genRequestUrl()}`;
+  async nuxtServerInit({ commit, state }) {
+    const requestUrl = state.requestUrl;
     const res = await this.$axios.get(requestUrl);
     Promise.all([
       commit('LOAD_CONFIG', res.data.config),
@@ -109,5 +110,9 @@ export const actions = {
     await this.$axios.put(requestUrl, {
       'active_filter': state.config.def_coeff
     })
+  },
+  async SEARCH_UPDATE({ commit, state }) {
+    const requestUrl = `${genRequestUrl()}/system/update`
+    return await this.$axios.get(requestUrl)
   }
 }

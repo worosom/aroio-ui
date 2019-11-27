@@ -15,6 +15,7 @@
                       type="text"
                       :id="item"
                       :disabled="disabled"
+                      :autocomplete="autocomplete"
                       ></b-form-input>
       </b-input-group>
     </b-col>

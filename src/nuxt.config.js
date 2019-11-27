@@ -91,6 +91,7 @@ module.exports = {
       'FormSelectPlugin',
       'FormInputPlugin',
       'InputGroupPlugin',
+      'TabsPlugin'
     ],
     directivePlugins: [
       'VBPopoverPlugin'

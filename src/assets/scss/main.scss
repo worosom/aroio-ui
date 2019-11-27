@@ -40,3 +40,24 @@
 @import "carousel";
 @import "utilities";
 @import "print";
+
+.main__wrap {
+  padding: 4rem 0;
+}
+.headroom {
+  will-change: transform;
+  transition: transform 200ms linear;
+  position: fixed;
+}
+.headroom--pinned {
+  transform: translateY(0%);
+}
+.headroom--unpinned {
+  transform: translateY(-100%);
+}
+.navbar {
+  box-shadow: 0 0 2px rgba(0,0,0,.5);
+}
+.headroom--unpinned .navbar {
+  box-shadow: none;
+}
