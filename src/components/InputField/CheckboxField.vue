@@ -1,14 +1,20 @@
+<style>
+.checkbox-field {
+  cursor: pointer;
+}
+</style>
 <template>
-  <b-form-row class="mb-2"
+  <b-form-row class="checkbox-field mb-2" @click.stop="toggle"
     v-b-tooltip.hover :title="$t(`${section}.${item}.help`)"
     >
     <b-col>
-      <label :for="item">
+      <label>
         {{ $t(`${section}.${item}.label`) }}
       </label>
     </b-col>
-    <b-col class="text-right" :for="item">
-      <b-btn :pressed.sync="pressed"
+    <b-col class="text-right">
+      <b-btn :pressed="pressed"
+             ref="switch"
              variant="primary"
              class="button_switch ml-auto"
              :name="item"
@@ -37,6 +43,11 @@ export default {
       set(value) {
         return this.model = value ? 'ON' : 'OFF'
       }
+    }
+  },
+  methods: {
+    toggle() {
+      this.pressed = !this.pressed
     }
   }
 }

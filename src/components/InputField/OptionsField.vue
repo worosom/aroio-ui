@@ -2,12 +2,12 @@
   <b-row class="mb-2"
     v-b-tooltip.hover :title="$t(disabled ? '' : `${section}.${item}.help`)"
     >
-    <b-col sm="4">
+    <b-col sm="6">
       <label :for="item">
         {{ $t(`${section}.${item}.label`) }}
       </label>
     </b-col>
-    <b-col sm="8">
+    <b-col sm="6">
       <b-input-group
         >
         <b-form-select v-model="model"
