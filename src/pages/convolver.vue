@@ -1,29 +1,39 @@
 <template>
   <b-container>
     <h1 class="mt-2">{{ $t('CONVOLVER.title')  }}</h1>
-    <b-card
-      class="mb-4"
-      :title="$t('CONVOLVER.FILTER_CHOICES')"
-      >
-      <b-row>
-        <convolver-bank
-          v-for="(bank, key) in banks"
+    <b-row>
+      <b-col
+        cols="12"
+        >
+        <b-card
+          class="mb-4"
+          :title="$t('CONVOLVER.FILTER_CHOICES')"
+          >
+          <b-row>
+            <convolver-bank
+              v-for="(bank, key) in banks"
+              :key="key"
+              :bank="bank"
+              :choices="choices"
+              ></convolver-bank>
+          </b-row>
+        </b-card>
+      </b-col>
+      <b-col
+        cols="12"
+        >
+        <b-card
+          v-for="(segment, key) in $t('CONVOLVER.segments')"
           :key="key"
-          :bank="bank"
-          :choices="choices"
-          ></convolver-bank>
-      </b-row>
-    </b-card>
-    <b-card
-      v-for="(segment, key) in $t('CONVOLVER.segments')"
-      :key="key"
-      :title="segment.title"
-      class="mb-4"
-      >
-      <div v-if="segment.content && segment.content.length"
-        v-html="$renderContent(segment.content)">
-      </div>
-    </b-card>
+          :title="segment.title"
+          class="mb-4"
+          >
+          <div v-if="segment.content && segment.content.length"
+            v-html="$renderContent(segment.content)">
+          </div>
+        </b-card>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 <style scoped>

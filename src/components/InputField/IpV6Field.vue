@@ -15,6 +15,7 @@
                       type="text"
                       :id="`${item}_a`"
                       :disabled="disabled"
+                      autocomplete="new-password"
                       ></b-form-input>
         :
         <b-form-input v-model='b'
@@ -22,6 +23,7 @@
                       type="text"
                       :id="`${item}_b`"
                       :disabled="disabled"
+                      autocomplete="new-password"
                       ></b-form-input>
         :
         <b-form-input v-model='c'
@@ -29,6 +31,7 @@
                       type="text"
                       :id="`${item}_c`"
                       :disabled="disabled"
+                      autocomplete="new-password"
                       ></b-form-input>
         :
         <b-form-input v-model='d'
@@ -36,6 +39,7 @@
                       type="text"
                       :id="`${item}_d`"
                       :disabled="disabled"
+                      autocomplete="new-password"
                       ></b-form-input>
         :
         <b-form-input v-model='e'
@@ -43,6 +47,7 @@
                       type="text"
                       :id="`${item}_e`"
                       :disabled="disabled"
+                      autocomplete="new-password"
                       ></b-form-input>
       </b-input-group>
     </b-col>

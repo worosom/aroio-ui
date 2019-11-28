@@ -14,11 +14,6 @@
         <b-collapse is-nav id="nav_collapse">
           <b-navbar-nav>
             <b-nav-item nuxt router
-              :to="$i18n.path('audio')"
-              >
-              {{ $t('links.audio') }}
-            </b-nav-item>
-            <b-nav-item nuxt router
               :to="$i18n.path('convolver')"
               >
               {{ $t('links.convolver') }}
@@ -38,10 +33,6 @@
               >
               {{ $t('links.system') }}
             </b-nav-item>
-          </b-navbar-nav>
-
-          <!-- Right aligned nav items -->
-          <b-navbar-nav class="ml-auto">
             <b-nav-item nuxt router :to="$i18n.path('help')">
               {{ $t('links.help') }}
             </b-nav-item>
@@ -50,34 +41,26 @@
               <b-dropdown-item href="/de">DE</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
+
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
+            <b-btn-group class="ml-2">
+              <b-btn
+                @click="reboot()"
+                >{{ $t('reboot') }}</b-btn>
+              <b-btn
+                type="submit"
+                :disabled="!dirty"
+                @click.stop.prevent="submit()"
+                >{{ $t('save_settings') }}</b-btn>
+            </b-btn-group>
+          </b-navbar-nav>
         </b-collapse>
       </b-navbar>
     </headroom>
-    <b-form onsubmit.stop.prevent="submit()"
-            class="main__wrap"
-            action="http://localhost/api/"
-            target="_blank"
-            method="POST">
+    <div class="main__wrap">
       <nuxt/>
-      <b-navbar fixed="bottom"
-                variant="info"
-        >
-        <b-navbar-nav class="ml-auto">
-          <b-row>
-            <b-button
-              @click="reboot()"
-              class="mr-2"
-              >{{ $t('reboot') }}</b-button>
-            <b-button
-              type="submit"
-              :disabled="!dirty"
-              @click.stop.prevent="submit()"
-              class="mr-2"
-              >{{ $t('save_settings') }}</b-button>
-          </b-row>
-        </b-navbar-nav>
-      </b-navbar>
-    </b-form>
+    </div>
     <reboot-modal />
   </div>
 </template>

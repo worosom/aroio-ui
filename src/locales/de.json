@@ -1,6 +1,6 @@
 {
   "language": "DE",
-  "save_settings": "Einstellungen anwenden",
+  "save_settings": "Speichern",
   "reboot": "Neustart",
   "cleaner": "Clean",
   "links": {
@@ -220,7 +220,7 @@
       "label": "DHCP",
       "help": "DHCP richtet automatisch die dem Netzwerk entsprechenden Verbindungsparameter ein, sofern der Router/Acces Point dies unterstützt (was meist der Fall ist)."
     },
-    "lan_ipv4addr": {
+    "lan_ipaddr": {
       "label": "IPv4-Addresse",
       "help": "Eine gültige IP-Adresse hat die Form xxx.xxx.xxx.xxx wobei xxx für eine Zahl von 0 - 255 steht."
     },
@@ -244,7 +244,7 @@
       "label": "DHCP",
       "help": "DHCP richtet automatisch die dem Netzwerk entsprechenden Verbindungsparameter ein, sofern der Router/Acces Point dies unterstützt (was meist der Fall ist)."
     },
-    "wlan_ipv4addr": {
+    "wlan_ipaddr": {
       "label": "IPv4-Addresse",
       "help": "Eine gültige IP-Adresse hat die Form xxx.xxx.xxx.xxx wobei xxx für eine Zahl von 0 - 255 steht."
     },

@@ -4,6 +4,8 @@
     width: 76px;
     display: block;
     text-align: right;
+    font-family: monospace;
+    font-size: 1.25rem;
   }
 }
 </style>

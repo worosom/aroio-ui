@@ -20,55 +20,63 @@
 <template>
   <b-container>
     <h1 class="mt-2">{{ $t('MEASURE.title') }}</h1>
-
-    <b-card
-      v-for="(segment, key) in $t('MEASURE.segments')"
-      :key="key"
-      :title="segment.title"
-      class="mb-4"
+    <b-row
       >
-      <div v-if="segment.content && segment.content.length"
-        v-html="$renderContent(segment.content)">
-      </div>
-    </b-card>
-
-    <b-card class="mb-2">
-      <b-button-toolbar>
-        <b-button-group style="width: 100%">
-          <b-btn size="lg"
-                 v-if="!measured"
-                 :variant="measuring ? 'outline-danger' : 'outline-primary'"
-                 :pressed.sync="measuring"
-                 class="measure__button"
-                 :disabled="waiting"
-            >{{ $t('MEASURE' + (measuring ? '.abort' : '.title')) }}</b-btn>
-          <b-dropdown
-            dropup
-            offset="50%"
-            v-if="measured"
-            :text="$t('MEASURE.success')"
-            variant="success"
-            size="lg"
-            class="measure__button--success"
-            >
-            <b-dropdown-item-button
-              @click="() => measuring = true"
-              >{{ $t('MEASURE.restart') }}</b-dropdown-item-button>
-          </b-dropdown>
-          <div
-            v-if="!measured"
-            style="width: 100%">
-            <b-progress :animated="!measured"
-              :value="measure_progress"
-              :variant="measured ? 'success' : 'danger'"
-              :max="duration"
-              class="measure__progress"
-              ></b-progress>
+      <b-col
+        cols="12"
+        >
+        <b-card class="mb-2">
+          <b-button-toolbar>
+            <b-button-group style="width: 100%">
+              <b-btn size="lg"
+                     v-if="!measured"
+                     :variant="measuring ? 'outline-danger' : 'outline-primary'"
+                     :pressed.sync="measuring"
+                     class="measure__button"
+                     :disabled="waiting"
+                >{{ $t('MEASURE' + (measuring ? '.abort' : '.title')) }}</b-btn>
+              <b-dropdown
+                dropup
+                offset="50%"
+                v-if="measured"
+                :text="$t('MEASURE.success')"
+                variant="success"
+                size="lg"
+                class="measure__button--success"
+                >
+                <b-dropdown-item-button
+                  @click="() => measuring = true"
+                  >{{ $t('MEASURE.restart') }}</b-dropdown-item-button>
+              </b-dropdown>
+              <div
+                v-if="!measured"
+                style="width: 100%">
+                <b-progress :animated="!measured"
+                  :value="measure_progress"
+                  :variant="measured ? 'success' : 'danger'"
+                  :max="duration"
+                  class="measure__progress"
+                  ></b-progress>
+              </div>
+            </b-button-group>
+          </b-button-toolbar>
+        </b-card>
+      </b-col>
+      <b-col
+        lg="6"
+        v-for="(segment, key) in $t('MEASURE.segments')"
+        :key="key"
+        >
+        <b-card
+          :title="segment.title"
+          class="mb-4"
+          >
+          <div v-if="segment.content && segment.content.length"
+            v-html="$renderContent(segment.content)">
           </div>
-        </b-button-group>
-      </b-button-toolbar>
-    </b-card>
-
+        </b-card>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 <script>

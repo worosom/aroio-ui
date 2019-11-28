@@ -1,6 +1,6 @@
 const apiPort = 81;
-// const genRequestUrl = () => `${window.location.protocol}//${window.location.host.split(':')[0]}:${apiPort}/api`;
-const genRequestUrl = () => `http://192.168.1.20:${apiPort}/api`;
+const genRequestUrl = () => `${window.location.protocol}//${window.location.host.split(':')[0]}:${apiPort}/api`;
+// const genRequestUrl = () => `http://192.168.1.20:${apiPort}/api`;
 
 export const state = () => ({
   requestUrl: genRequestUrl(),
@@ -47,7 +47,6 @@ export const mutations = {
       state.system = system;
   },
   SET_VALUE(state, {section, key, value}) {
-    console.log(section, key, value)
     if (!state.dirty)
       state.dirty = state.config[key] !== value;
     state.config[key] = value

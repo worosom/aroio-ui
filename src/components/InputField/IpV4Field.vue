@@ -18,6 +18,7 @@
                       step="1"
                       :id="`${item}_a`"
                       :disabled="disabled"
+                      autocomplete="off"
                       ></b-form-input>
         .
         <b-form-input v-model='b'
@@ -28,6 +29,7 @@
                       step="1"
                       :id="`${item}_b`"
                       :disabled="disabled"
+                      autocomplete="off"
                       ></b-form-input>
         .
         <b-form-input v-model='c'
@@ -38,6 +40,7 @@
                       step="1"
                       :id="`${item}_c`"
                       :disabled="disabled"
+                      autocomplete="off"
                       ></b-form-input>
         .
         <b-form-input v-model='d'
@@ -48,13 +51,8 @@
                       step="1"
                       :id="`${item}_d`"
                       :disabled="disabled"
+                      autocomplete="off"
                       ></b-form-input>
-        <!--<b-form-input v-model="model"
-                      :name="item"
-                      type="text"
-                      :id="item"
-                      :disabled="disabled"
-                      ></b-form-input>-->
       </b-input-group>
     </b-col>
   </b-row>

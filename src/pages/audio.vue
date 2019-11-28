@@ -6,11 +6,15 @@
     <b-row
       >
       <b-col
-        lg="9"
+        lg="6"
         >
         <audio-modules
           class="mb-4"
           ></audio-modules>
+      </b-col>
+      <b-col
+        lg="6"
+        >
         <b-card
             :title="$t('AUDIO.GLOBAL_SETTINGS')"
             class="mb-4"
@@ -44,6 +48,10 @@
 
           </b-container>
         </b-card>
+      </b-col>
+      <b-col
+        lg="6"
+        >
 
         <b-card
             :title="$t('AUDIO.LMS_SETTINGS')"
@@ -91,6 +99,10 @@
 
           </b-container>
         </b-card>
+      </b-col>
+      <b-col
+        lg="6"
+        >
 
         <b-card
             :title="$t('AUDIO.ADVANCED_SETTINGS')"

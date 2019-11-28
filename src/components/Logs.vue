@@ -48,7 +48,9 @@
   <b-card
     no-body
     >
-    <b-tabs v-model="tabIndex" card>
+    <b-tabs
+      v-model="tabIndex"
+      card>
       <b-tab
         v-for="(item, key) in logs"
         :key="key"
@@ -96,6 +98,7 @@
 </template>
 <script>
 import Loading from '../components/Loading'
+import {CancelToken, isCancel} from 'axios'
 
 const __logs = [
   'network',
@@ -110,6 +113,7 @@ const __logs = [
 export default {
   components: { Loading },
   data() {
+    Object.assign(this.$axios, {CancelToken, isCancel})
     const logs = {}
     for (let i = 0; i < __logs.length; i++) {
       logs[__logs[i]] = []
@@ -118,7 +122,7 @@ export default {
       index: 0,
       waiting: true,
       logs,
-      log: []
+      log: [],
     }
   },
   computed: {
@@ -128,6 +132,10 @@ export default {
     tabIndex: {
       get() { return this.index },
       set(value) {
+        if (this.waiting) {
+          this.cancelSource.cancel('Operation canceled by the user.')
+          this.waiting = false
+        }
         this.index = value
         this.getLog(__logs[value]).then(log => {
           Object.assign(this, {
@@ -154,8 +162,20 @@ export default {
       Object.assign(this, {
         log: []
       })
-      return this.$axios.get(`${this.requestUrl}/logs/${log}`)
+      this.cancelSource = this.$axios.CancelToken.source()
+      
+      return this.$axios.get(`${this.requestUrl}/logs/${log}`, {
+          cancelToken: this.cancelSource.token
+        })
+        .catch(thrown => {
+          if (this.$axios.isCancel(thrown)) {
+            return
+          }
+        })
         .then(res => {
+          if (typeof res == 'undefined') {
+            return []
+          }
           this.logs[log] = res.data[log].split('\n')
           this.waiting = false
           return this.logs[log]

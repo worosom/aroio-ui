@@ -4,7 +4,7 @@
     <b-row
       >
       <b-col
-        lg="9"
+        xl="6"
         >
         <input-field
           section="NETWORK"
@@ -25,18 +25,18 @@
           <input-field
             :disabled="!lan_static"
             section="NETWORK"
-            item="lan_ipv4addr"
+            item="lan_ipaddr"
             type="ipv4"
             :model="lan_ipv4addr"
             ></input-field>
 
-          <input-field
+          <!--<input-field
             :disabled="!lan_static"
             section="NETWORK"
             item="lan_ipv6addr"
             type="ipv6"
             :model="lan_ipv6addr"
-            ></input-field>
+            ></input-field>-->
 
           <input-field
             :disabled="!lan_static"
@@ -61,6 +61,8 @@
             type="ipv4"
             ></input-field>
         </b-card>
+      </b-col>
+      <b-col xl="6">
         <b-card
           class="mb-4"
           :title="$t('NETWORK.wlan_settings')"
@@ -77,16 +79,16 @@
           <input-field
             :disabled="!wlan_static"
             section="NETWORK"
-            item="wlan_ipv4addr"
+            item="wlan_ipaddr"
             type="ipv4"
             ></input-field>
 
-          <input-field
+          <!--<input-field
             :disabled="!wlan_static"
             section="NETWORK"
             item="wlan_ipv6addr"
             type="ipv6"
-            ></input-field>
+            ></input-field>-->
 
           <input-field
             :disabled="!wlan_static"
