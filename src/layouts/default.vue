@@ -74,7 +74,7 @@ import RebootModal from '../components/RebootModal';
 
 export default {
   head() {
-    let name = this.network.HOSTNAME;
+    let name = this.network.hostname;
     let section = this.$t(this.section+'.title');
     return {
       title: `${name} > ${section}`
