@@ -52,7 +52,7 @@ label {
       v-if="type === 'buffersize'"
       :section="section"
       :item="item"
-      :options="getBufferSizes()"
+      :options="bufferSizes"
       :disabled="disabled"
       ></options-field>
     <options-field
@@ -104,8 +104,8 @@ export default {
     CheckboxField,
     PasswordField
   },
-  methods: {
-    getBufferSizes() {
+  computed: {
+    bufferSizes() {
       let arr = [];
       for (let i = 16; i <= 65536; i+=i) {
         arr.push(i)
