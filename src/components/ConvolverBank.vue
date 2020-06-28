@@ -47,11 +47,15 @@
   border-top: none;
 }
 
+.convolver__bank__params .input-group-prepend .input-group-text {
+  width: unset;
+}
+
 .convolver__bank__params .input-group-append .input-group-text {
   width: 50px;
 }
 
-.convolver__bank__params__gain .input-group-append .input-group-text {
+.convolver__bank__params_att .input-group-append .input-group-text {
   border-radius: 0 0.25rem 0 0;
 }
 
@@ -107,10 +111,12 @@
       lg="2"
       class="convolver__bank__params pl-0">
       <b-input-group
-        class="convolver__bank__params__gain"
-        append="dB">
+        class="convolver__bank__params_att"
+        append="dB"
+        prepend="-">
         <b-form-input
           type="number"
+          min="0"
           v-model="att"></b-form-input>
       </b-input-group>
       <b-input-group

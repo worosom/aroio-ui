@@ -9,6 +9,7 @@
         lg="6"
         >
         <audio-modules
+          :ref="'audioModules'"
           class="mb-4"
           ></audio-modules>
       </b-col>
@@ -51,8 +52,8 @@
       </b-col>
       <b-col
         lg="6"
+        v-if="lms_enabled"
         >
-
         <b-card
             :title="$t('AUDIO.LMS_SETTINGS')"
             class="mb-4"
@@ -171,6 +172,9 @@ export default {
     }
   },
   computed: {
+    lms_enabled() {
+      return this.$store.state.lmsEnabled
+    },
     selected_soundcard: {
       get() {
         return this.$store.state.config.soundcard

@@ -45,7 +45,9 @@
       >
       <b-col
         >
-        <logs/>
+        <client-only>
+          <logs/>
+        </client-only>
       </b-col>
     </b-row>
   </b-container>

@@ -106,11 +106,8 @@ export default {
               key,
               value: selected.indexOf(key) >= 0 ? 'ON' : 'OFF'
             })
-            selected.forEach(sel => {
-            })
           }
         }
-
       }
     }
     // ^ checkboxModel

@@ -1,6 +1,6 @@
 const apiPort = 81;
 const genRequestUrl = () => `${window.location.protocol}//${window.location.host.split(':')[0]}:${apiPort}/api`;
-// const genRequestUrl = () => `http://192.168.1.20:${apiPort}/api`;
+// const genRequestUrl = () => `http://192.168.1.25:${apiPort}/api`;
 
 export const state = () => ({
   requestUrl: genRequestUrl(),
@@ -15,6 +15,7 @@ export const state = () => ({
   convolver: {
     choices: []
   },
+  lmsEnabled: false,
   dirty: false,
   STATUS_LOADING: 'loading',
   STATUS_SAVING: 'config_saving',
@@ -36,6 +37,30 @@ export const mutations = {
     if (config) {
       state.config = config;
       state.dirty = false;
+
+      let out = config.audio_output
+      const ms = out.slice(-2) == 'ms'
+      if (ms) {
+        out = out.slice(0, -2)
+      }
+      if (out.indexOf('vol-plug') == 0)
+        out = 'raw_player';
+
+      const keys = Object.keys(config)
+      const ins_keys = keys.filter((key) => {
+        let key_ms = key.indexOf('ms') > 0
+        if (!ms)
+          key_ms = !key_ms;
+        return key.indexOf(out) >= 0 && key_ms
+      })
+      ins_keys.forEach((key) => {
+        if (config[key] == 'squeezelite') {
+          state.lmsEnabled = true
+        }
+        if (key.indexOf('squeezelite') > 0 && config[key] == 'ON') {
+          state.lmsEnabled = true
+        }
+      })
     }
   },
   LOAD_FILTERS(state, convolver) {
@@ -50,10 +75,18 @@ export const mutations = {
     if (!state.dirty)
       state.dirty = state.config[key] !== value;
     state.config[key] = value
+
     if (section == 'BRUTEFIR') {
       if (key == 'def_coeff') {
         this.dispatch('APPLY_DEF_COEFF')
       }
+    } if (section == 'AUDIO') {
+      if (key.indexOf('raw_player') == 0)
+        state.lmsEnabled = value == 'squeezelite';
+      else
+        if (key.split('_')[0] == state.config.audio_output)
+          if (key.split('_')[1] == 'squeezelite')
+            state.lmsEnabled = value == 'ON' ? true : false;
     }
   },
   SET_AUDIO_INPUT(state, {section, key, value}) {

@@ -25,7 +25,7 @@
           <input-field
             :disabled="!lan_static"
             section="NETWORK"
-            item="lan_ipaddr"
+            item="lan_ipv4addr"
             type="ipv4"
             :model="lan_ipv4addr"
             ></input-field>
@@ -79,7 +79,7 @@
           <input-field
             :disabled="!wlan_static"
             section="NETWORK"
-            item="wlan_ipaddr"
+            item="wlan_ipv4addr"
             type="ipv4"
             ></input-field>
 
@@ -123,6 +123,7 @@ export default {
   components: { InputField, wlan },
   computed: {
     has_wlan() {
+      console.log(this.$store.state.system)
       return this.$store.state.system.network.has_wlan
     },
     lan_static() {
