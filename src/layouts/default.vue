@@ -8,7 +8,7 @@
                 class="navbar--top"
                 >
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-        <b-navbar-brand nuxt link to="/"
+        <b-navbar-brand nuxt link :to="$i18n.path('audio')"
                         v-html="system.platform + ' - ' + network.hostname"
           />
         <b-collapse is-nav id="nav_collapse">
