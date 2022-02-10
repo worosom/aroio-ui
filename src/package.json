@@ -19,7 +19,7 @@
     "jquery": "3",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
-    "node-sass": "^4.9.3",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.9.2",
     "sass-loader": "^7.1.0",
     "vue-headroom": "^0.8.1",
